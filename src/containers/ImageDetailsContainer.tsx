@@ -7,8 +7,11 @@ import ImageDetails from "../components/ImageDetails/ImageDetails";
 const ImageDetailsContainer = () => {
   const [imageDetails, setImageDetails] = useState<ImageData | null>(null);
   const [tags, setTags] = useState<string[]>([]);
+  const [returnUrl, setReturnUrl] = useState<string | null>(null);
 
   const { id } = useParams<{ id: string }>();
+  const { q } = useParams<{ q: string }>();
+  const { page } = useParams<{ page: string }>();
 
   useEffect(() => {
     const setDetails = async () => {
@@ -16,9 +19,12 @@ const ImageDetailsContainer = () => {
         const imageData: ImageData = await fetchResultDetails(id);
         setImageDetails(imageData);
       }
+      if (q && page) {
+        setReturnUrl(`/search/?q=${q}&page=${page}`);
+      }
     };
     setDetails();
-  }, [id]);
+  }, [id, q, page]);
 
   useEffect(() => {
     const stringToList = (str: string) => {
@@ -30,7 +36,13 @@ const ImageDetailsContainer = () => {
     }
   }, [imageDetails]);
 
-  return <ImageDetails imageDetails={imageDetails} tags={tags} />;
+  return (
+    <ImageDetails
+      imageDetails={imageDetails}
+      tags={tags}
+      returnUrl={returnUrl}
+    />
+  );
 };
 
 export default ImageDetailsContainer;

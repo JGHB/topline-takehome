@@ -8,7 +8,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<ImageSearchContainer />} />
-        <Route path="/:id" element={<ImageDetailsContainer />} />
+        <Route path="/search" element={<ImageSearchContainer />} />
+        <Route path="/results/:id" element={<ImageDetailsContainer />} />
+        <Route
+          path="/results/:id/:q/:page"
+          element={<ImageDetailsContainer />}
+        />
       </Routes>
     </Router>
   );

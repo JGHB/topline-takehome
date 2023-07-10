@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXELBAY_KEY}`;
+const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_KEY}`;
 
 export const fetchResults = async (searchQuery: string, page: number) => {
   try {

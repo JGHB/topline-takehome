@@ -6,13 +6,30 @@ import styles from "./ImageDetails.module.css";
 interface ImageDetailsProps {
   imageDetails: ImageData | null;
   tags: string[];
+  returnUrl: string | null;
 }
 
-const ImageDetails: React.FC<ImageDetailsProps> = ({ imageDetails, tags }) => {
+const ImageDetails: React.FC<ImageDetailsProps> = ({
+  imageDetails,
+  tags,
+  returnUrl,
+}) => {
   const navigate = useNavigate();
 
   return (
     <div className={styles.imageDetailsContainer}>
+      {returnUrl ? (
+        <button
+          className={styles.backButton}
+          onClick={() => navigate(returnUrl)}
+        >
+          Go Back
+        </button>
+      ) : (
+        <button className={styles.backButton} onClick={() => navigate("/")}>
+          Go Home
+        </button>
+      )}
       {imageDetails && (
         <div className={styles.imageDetailsContainer}>
           <img src={imageDetails?.webformatURL} />

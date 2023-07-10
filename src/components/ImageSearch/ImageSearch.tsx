@@ -11,6 +11,8 @@ interface ImageSearchProps {
   page: number;
   resultsQuery: string;
   handleGetResults: (input: string, increment: number) => void;
+  formattedResultsQuery: string;
+  displayErrorMessage: boolean;
 }
 
 const ImageSearch: React.FC<ImageSearchProps> = ({
@@ -21,6 +23,8 @@ const ImageSearch: React.FC<ImageSearchProps> = ({
   page,
   resultsQuery,
   handleGetResults,
+  formattedResultsQuery,
+  displayErrorMessage,
 }) => {
   const navigate = useNavigate();
 
@@ -34,6 +38,11 @@ const ImageSearch: React.FC<ImageSearchProps> = ({
         value={searchQuery}
         className={styles.inputField}
       />
+      {displayErrorMessage && (
+        <span className={styles.errorMessage}>
+          Please enter input before searching
+        </span>
+      )}
       <button
         onClick={() => handleSearch(searchQuery)}
         className={styles.searchButton}
@@ -47,7 +56,9 @@ const ImageSearch: React.FC<ImageSearchProps> = ({
         {imageResults.map((result) => (
           <div
             key={result.id}
-            onClick={() => navigate(`/${result.id}`)}
+            onClick={() =>
+              navigate(`/results/${result.id}/${formattedResultsQuery}/${page}`)
+            }
             className={styles.result}
           >
             <img
