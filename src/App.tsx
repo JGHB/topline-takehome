@@ -1,9 +1,16 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ImageSearchContainer from "./containers/ImageSearchContainer";
+import ImageDetailsContainer from "./containers/ImageDetailsContainer";
 
 function App() {
   return (
-    <div className="App"> Hello World
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ImageSearchContainer />} />
+        <Route path="/:id" element={<ImageDetailsContainer />} />
+      </Routes>
+    </Router>
   );
 }
 
