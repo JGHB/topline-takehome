@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Pixabay Image Search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React project that utilizes the Pixabay API to display images. Follow the instructions below to get started with the project.
 
-## Available Scripts
+## Clone the Repository
 
-In the project directory, you can run:
+To get a local copy of the project, you can clone the repository by running the following command in your terminal:
 
-### `npm start`
+`git clone https://github.com/JGHB/topline-takehome.git`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Install Dependencies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Navigate to the project directory and install the necessary dependencies by running the following command:
 
-### `npm test`
+`cd topline-takehome`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm install`
 
-### `npm run build`
+## Create the `.env` File
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Create a new file in the project root directory called `.env`. This file will contain your API key for the Pixabay API. Open the `.env` file in a text editor and add the following line:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`REACT_APP_PIXABAY_KEY=YOUR_API_KEY`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Replace `YOUR_API_KEY` with the API key you obtained from the Pixabay website.
 
-### `npm run eject`
+## Get your Pixabay API Key
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To obtain your Pixabay API key, please visit the following link: [https://pixabay.com/](https://pixabay.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Start the Development Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Once you have cloned the repository, installed the dependencies, and added your Pixabay API key to the `.env` file, you can start the development server. Run the following command:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`npm start`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This will start the development server and open the application in your default browser. You can now view and interact with the project.
