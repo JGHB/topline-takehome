@@ -6,6 +6,7 @@ import ImageDetails from "../components/ImageDetails/ImageDetails";
 
 const ImageDetailsContainer = () => {
   const [imageDetails, setImageDetails] = useState<ImageData | null>(null);
+  const [tags, setTags] = useState<string[]>([]);
 
   const { id } = useParams<{ id: string }>();
 
@@ -17,9 +18,19 @@ const ImageDetailsContainer = () => {
       }
     };
     setDetails();
-  });
+  }, [id]);
 
-  return <ImageDetails imageDetails={imageDetails} />;
+  useEffect(() => {
+    const stringToList = (str: string) => {
+      const values = str.trim().split(", ");
+      return values;
+    };
+    if (imageDetails) {
+      setTags(stringToList(imageDetails.tags));
+    }
+  }, [imageDetails]);
+
+  return <ImageDetails imageDetails={imageDetails} tags={tags} />;
 };
 
 export default ImageDetailsContainer;

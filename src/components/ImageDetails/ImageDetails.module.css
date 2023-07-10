@@ -1,0 +1,51 @@
+.imageDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+  color: rgba(104, 85, 224, 1);
+}
+
+.imageInfo {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.imageDetailsContainer img {
+  height: auto;
+  max-width: 80%;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.infoBlock {
+  border-radius: 20px;
+  border: 1px solid rgba(104, 85, 224, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+.tag {
+  border: 1px solid rgba(104, 85, 224, 1);
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(237, 237, 237);
+  border-radius: 40px;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .imageInfo {
+    flex-direction: column;
+  }
+}

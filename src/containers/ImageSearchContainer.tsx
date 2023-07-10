@@ -22,7 +22,7 @@ const ImageSearchContainer = () => {
 
   const handleSearch = async (input: string) => {
     const formattedString = formatStringForApiCall(input);
-    handleGetResults(formattedString, 1);
+    handleGetResults(formattedString, -page + 1);
     setResultsQuery(searchQuery);
     setSearchQuery("");
   };

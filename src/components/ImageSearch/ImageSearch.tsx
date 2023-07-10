@@ -1,6 +1,7 @@
 import React from "react";
 import { ImageData } from "../../types";
 import { useNavigate } from "react-router-dom";
+import styles from "./ImageSearch.module.css";
 
 interface ImageSearchProps {
   handleSearch: (input: string) => void;
@@ -24,33 +25,53 @@ const ImageSearch: React.FC<ImageSearchProps> = ({
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>Search for Images</h1>
+    <div className={styles.imageSearchContainer}>
+      <h1 className={styles.title}>Pixabay Images</h1>
       <input
         type="text"
-        placeholder="Search Images"
+        placeholder="Search"
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery}
+        className={styles.inputField}
       />
-      <button onClick={() => handleSearch(searchQuery)}>Search</button>
-      {resultsQuery && <h2>Results for {resultsQuery}</h2>}
-      <ul>
+      <button
+        onClick={() => handleSearch(searchQuery)}
+        className={styles.searchButton}
+      >
+        Search
+      </button>
+      {resultsQuery && (
+        <h2 className={styles.resultsTitle}>Results for: {resultsQuery}</h2>
+      )}
+      <div className={styles.resultsContainer}>
         {imageResults.map((result) => (
-          <li key={result.id}>
-            <button onClick={() => navigate(`/${result.id}`)}>
-              <img src={result.previewURL} alt={"Image" + result.id} />
-            </button>
-          </li>
+          <div
+            key={result.id}
+            onClick={() => navigate(`/${result.id}`)}
+            className={styles.result}
+          >
+            <img
+              src={result.previewURL}
+              alt={"Image" + result.id}
+              className={styles.resultImage}
+            />
+          </div>
         ))}
-      </ul>
-      <div>
+      </div>
+      <div className={styles.paginationContainer}>
         {page > 1 && (
-          <button onClick={() => handleGetResults(resultsQuery, -1)}>
+          <button
+            onClick={() => handleGetResults(resultsQuery, -1)}
+            className={styles.paginationButton}
+          >
             {"<"}
           </button>
         )}
         {page > 0 && (
-          <button onClick={() => handleGetResults(resultsQuery, 1)}>
+          <button
+            onClick={() => handleGetResults(resultsQuery, 1)}
+            className={styles.paginationButton}
+          >
             {">"}
           </button>
         )}
